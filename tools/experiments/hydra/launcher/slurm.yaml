@@ -1,0 +1,9 @@
+defaults:
+  - submitit_slurm
+
+timeout_min: 1199
+gpus_per_node: 1
+cpus_per_task: 40
+mem_gb: 60
+nodes: 1
+name: ${exp_name}

@@ -1,0 +1,6 @@
+[submodule "openpoints"]
+	path = openpoints
+	url = https://github.com/guochengqian/openpoints.git
+[submodule "hand_imitation/env/models/assets/objects"]
+	path = hand_imitation/env/models/assets/objects
+	url = https://github.com/zerchen/object_sim.git

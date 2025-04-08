@@ -1,0 +1,86 @@
+params:
+  agent:
+    multi_proc: true
+    name: PPO
+    params:
+      batch_size: 256
+      clip_range: 0.2
+      ent_coef: 0.001
+      gae_lambda: 0.95
+      gamma: 0.95
+      learning_rate: 1.0e-05
+      n_epochs: 5
+      n_steps: 4096
+      vf_coef: 0.5
+      warm_start_mean: true
+    policy_kwargs:
+      log_std_init: -1.6
+      net_arch:
+      - pi:
+        - 256
+        - 128
+        vf:
+        - 256
+        - 128
+  checkpoints:
+    name_prefix: rl_model
+    save_freq: 4000000
+    save_path: ${hydra.sweep.dir}/models
+  defaults:
+    agent: ppo
+    env: dexycb_relocate
+  env:
+    env_kwargs: {}
+    info_keywords:
+    - pregrasp_success
+    - pregrasp_steps
+    - pregrasp_jpos_err
+    - imitate_obj_err
+    - imitate_obj_success
+    - imitate_goal_success
+    - imitate_step_obj_err
+    - imitate_hand_err
+    - imitate_hand_success
+    - imitate_step_hand_err
+    - time_frac
+    - stage
+    - relocate_step_obj_err
+    - relocate_step_hand_err
+    - imitate_steps
+    n_envs: ${n_envs}
+    name: ycb-004_sugar_box-20200918-subject-06-20200918_113441
+    state_keyword: state
+    task_kwargs:
+      append_time: true
+      pregrasp: template
+      random_episode: true
+      action: relocate
+      reward_kwargs:
+        lift_bonus_mag: 2.5
+        lift_bonus_thresh: 0.02
+        n_envs: ${n_envs}
+        obj_com_term: 0.25
+        obj_err_scale: 50
+        obj_reward_ramp: 0
+        obj_reward_start: 0
+        object_reward_scale: 10.0
+      rot_aug: ${rot_aug}
+    vid_freq: ${vid_freq}
+    vid_length: 100
+  eval_freq: 1000000
+  exp_name: ${agent.name}-${env.name}
+  id: ${hydra.job.id}
+  n_envs: 32
+  n_eval_envs: 5
+  restore_checkpoint_freq: 500000
+  resume_model: outputs/2023-12-31/17-19-15/restore_checkpoint.zip
+  rot_aug: true
+  save_freq: 10000000
+  seed: 0
+  total_timesteps: 300000000
+  vid_freq: null
+  wandb:
+    group: ${exp_name}
+    project: dummy_proj
+    sweep_name_prefix: run
+wandb_id: zhgz38qe

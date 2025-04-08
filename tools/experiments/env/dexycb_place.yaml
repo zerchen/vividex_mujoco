@@ -1,0 +1,22 @@
+name: ycb-011_banana-20200820-subject-03-20200820_141935
+task_kwargs:                                        # task keywords
+  append_time: True                                 # append time phase variables to state
+  pregrasp: template                                # PGDM uses planned initialization
+  random_episode: True
+  rot_aug: ${rot_aug}
+  action: place
+  reward_kwargs:                                    # parameters for object mimic reward
+    obj_err_scale: 50
+    object_reward_scale: 10.0
+    lift_bonus_thresh: 0.02
+    lift_bonus_mag: 2.5
+    obj_com_term: 0.25
+    n_envs: ${n_envs}
+    obj_reward_ramp: 0
+    obj_reward_start: 0
+env_kwargs: {}                                      # environment keyworks
+info_keywords: ['pregrasp_success', 'pregrasp_steps', 'pregrasp_jpos_err', 'imitate_obj_err', 'imitate_obj_success', 'imitate_goal_success', 'imitate_step_obj_err', 'imitate_hand_err', 'imitate_hand_success', 'imitate_step_hand_err', 'time_frac', 'stage', 'relocate_step_obj_err', 'relocate_step_hand_err', 'imitate_steps']
+state_keyword: state
+n_envs: ${n_envs}
+vid_freq: ${vid_freq}
+vid_length: 100
