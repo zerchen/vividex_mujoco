@@ -20,7 +20,7 @@ git clone --recursive https://github.com/zerchen/vividex_mujoco.git
 
 conda create -n rl python=3.10
 conda activate rl
-conda install pytorch==1.13.0 torchvision==0.14.0 torchaudio==0.13.0 pytorch-cuda=11.7 -c pytorch -c nvidia
+conda install pytorch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 pytorch-cuda=12.1 -c pytorch -c nvidia
 pip install -r requirements.txt
 conda install pytorch-scatter -c pyg
 
@@ -44,12 +44,14 @@ cd ../../../
 ```
 
 ## Usuage 🚀
-```
-# Train state-based relocation policy
+```bash
+# Train the state-based relocation policy
 python train.py env.name=seq_name
-# Train state-based pouring policy
+
+# Train the state-based pouring policy
 python train.py env=dexycb_pour
-# Train state-based place_inside policy
+
+# Train the state-based placing-inside policy
 python train.py env=dexycb_place
 ```
 Available seq_name can be found at: `hand_imitation/env/models/assets/objects/trajectories/ycb`. You can also download trained checkpoints [here](https://drive.google.com/drive/folders/1Y_GXjW9hgnc_77TsLAT5JgJEcKVWZlrw) and check their config files for a reference. Please note that change 36 to 42 for L197-198 in `hand_imitation/env/models/control.py` when try to load my trained checkpoints for pour and place inside tasks. When state-based policies are trained, rollout these policies and train the visual policy using `tools/dist_bc_train.py`.
