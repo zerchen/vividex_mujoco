@@ -23,24 +23,6 @@ conda activate rl
 conda install pytorch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 pytorch-cuda=12.1 -c pytorch -c nvidia
 pip install -r requirements.txt
 conda install pytorch-scatter -c pyg
-
-cd openpoints/cpp/pointnet2_batch
-python setup.py install --user
-cd ../
-
-cd subsampling
-python setup.py build_ext --inplace
-cd ..
-
-cd pointops/
-python setup.py install --user
-cd ..
-
-cd chamfer_dist
-python setup.py install --user
-cd ../emd
-python setup.py install --user
-cd ../../../
 ```
 
 ## Usuage 🚀
