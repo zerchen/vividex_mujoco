@@ -27,6 +27,8 @@ conda install pytorch-scatter -c pyg
 
 ## Usuage 🚀
 ```bash
+cd tools
+
 # Train the state-based relocation policy
 python train.py env.name=seq_name
 
