@@ -43,6 +43,17 @@ python setup.py install --user
 cd ../../../
 ```
 
+## Usuage 🚀
+```
+# Train state-based relocation policy
+python train.py env.name=seq_name
+# Train state-based pouring policy
+python train.py env=dexycb_pour
+# Train state-based place_inside policy
+python train.py env=dexycb_place
+```
+Available seq_name can be found at: `hand_imitation/env/models/assets/objects/trajectories/ycb`. You can also download trained checkpoints [here](https://drive.google.com/drive/folders/1Y_GXjW9hgnc_77TsLAT5JgJEcKVWZlrw) and check their config files for a reference. Please note that change 36 to 42 for L197-198 in `hand_imitation/env/models/control.py` when try to load my trained checkpoints for pour and place inside tasks. When state-based policies are trained, rollout these policies and train the visual policy using `tools/dist_bc_train.py`.
+
 ## Acknowledgements
 Parts of the code are based on [DexMV](https://github.com/yzqin/dexmv-sim) and [TCDM](https://github.com/facebookresearch/TCDM).
 

@@ -194,8 +194,8 @@ class SingleObjectTask(Task):
         full_rot = np.concatenate((hand_rot, obj_rot.reshape((1,4))), 0)
         full_vel = np.concatenate((hand_vel, obj_vel), 0)
 
-        obs['position'] = np.concatenate((base_pos[:36], full_com.reshape(-1), full_rot.reshape(-1))).astype(np.float32)
-        obs['velocity'] = np.concatenate((base_vel[:36], full_vel.reshape(-1))).astype(np.float32)
+        obs['position'] = np.concatenate((base_pos[:42], full_com.reshape(-1), full_rot.reshape(-1))).astype(np.float32)
+        obs['velocity'] = np.concatenate((base_vel[:42], full_vel.reshape(-1))).astype(np.float32)
         obs['hand_position'] = np.concatenate((base_pos[:30], hand_com.reshape(-1), hand_rot.reshape(-1))).astype(np.float32)
         obs['hand_velocity'] = np.concatenate((base_vel[:30], hand_vel.reshape(-1))).astype(np.float32)
         obs['state'] = np.concatenate((obs['position'], obs['velocity']))

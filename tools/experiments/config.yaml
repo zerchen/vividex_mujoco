@@ -1,6 +1,6 @@
 defaults:
   - agent: ppo
-  - env: dexycb
+  - env: dexycb_relocate
   #- override hydra/launcher: slurm
   - _self_
 
@@ -12,7 +12,7 @@ hydra:
 exp_name: ${agent.name}-${env.name}
 id: ${hydra.job.id}
 resume_model: null
-total_timesteps: 60000000
+total_timesteps: 100000000
 n_envs: 32
 n_eval_envs: 5
 eval_freq: 1000000
