@@ -11,7 +11,7 @@
 <a href='https://arxiv.org/abs/2404.15709'><img src='https://img.shields.io/badge/Paper-arXiv-red'></a>
 </div>
 
-This is the implementation of **[ViViDex](https://zerchen.github.io/projects/vividex.html)**, a novel system for learning dexterous manipulation skills from human videos:
+This is the implementation of **[ViViDex](https://zerchen.github.io/projects/vividex.html)** under the MuJoCo simulator, a novel system for learning dexterous manipulation skills from human videos:
 ![teaser](assets/teaser.png)
 
 ## Installation 👷
